@@ -77,10 +77,14 @@ header .container nav ul li a {
   max-width: 1000px !important;
 }
 
-.article-wrapper h2 {
+.article-wrapper h1 {
   font-size: 2.2rem;
   text-align: center;
   border-bottom: 1px solid #ddd;
+}
+
+.article-wrapper h2 {
+  margin: 1rem 0;
 }
 
 .article-wrapper span {
@@ -97,7 +101,16 @@ header .container nav ul li a {
   margin: 1rem 0;
   text-align: justify;
   padding-bottom: 1rem;
-  border-bottom: 1px solid #ddd;
+  /* border-bottom: 1px solid #ddd; */
+}
+
+.article-wrapper ul {
+  padding: 0 2rem;
+  font-size: 1.2rem;
+}
+
+.article-wrapper li {
+  margin: 0.5rem 0;
 }
 
 /* article style  end*/
@@ -106,13 +119,13 @@ header .container nav ul li a {
 
 .more-post-wrapper {
   background-color: #f8f8f8;
-  padding: 2rem 0;
+  padding: 2rem 1rem;
 }
 
 .more-post-wrapper .container {
   display: grid;
   gap: 5rem;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
 }
 
 .more-post {
@@ -188,3 +201,65 @@ footer .footer-bottom {
 }
 
 /* footer style end */
+
+@media (max-width: 768px) {
+  footer .row {
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 450px) {
+  header .container {
+    row-gap: 1rem;
+    flex-direction: column;
+  }
+
+  header .container nav ul li a {
+    margin-right: 10px !important;
+  }
+
+  .article-wrapper {
+    padding: 1rem;
+  }
+
+  .article-wrapper h1 {
+    font-size: 1.8rem;
+    margin: 1rem 0;
+    text-align: center;
+    border-bottom: 1px solid #ddd;
+  }
+
+  .article-wrapper h2 {
+    margin: 1rem 0;
+  }
+
+  .article-wrapper span {
+    text-align: center;
+    font-style: italic;
+    display: block;
+    padding: 0.8rem 0;
+    text-align: center;
+    color: rgb(185, 182, 182);
+  }
+
+  .article-wrapper p {
+    font-size: 1.2rem;
+    margin: 1rem 0;
+    text-align: justify;
+    padding-bottom: 1rem;
+    /* border-bottom: 1px solid #ddd; */
+  }
+
+  .article-wrapper ul {
+    padding: 0 1rem;
+    font-size: 1.2rem;
+  }
+
+  .article-wrapper li {
+    margin: 0.5rem 0;
+  }
+
+  .more-post-wrapper .container {
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  }
+}

@@ -75,8 +75,9 @@ header .container nav ul li a {
 .blog-wrapper .container .blog {
   display: grid;
   place-items: center;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 20px;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+
+  gap: 2rem;
 }
 
 .blog-post {
@@ -178,3 +179,20 @@ footer .footer-bottom {
 }
 
 /* footer style end */
+
+@media (max-width: 768px) {
+  footer .row {
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 450px) {
+  header .container {
+    row-gap: 1rem;
+    flex-direction: column;
+  }
+
+  header .container nav ul li a {
+    margin-right: 10px !important;
+  }
+}
