@@ -37,33 +37,3 @@ document.querySelector(".right").addEventListener("click", function () {
     (currentIndex - 1 + testimoniData.length) % testimoniData.length;
   updateTestimonial(currentIndex);
 });
-
-// // Function to create product elements based on data
-// function createProductElement(product) {
-//   const productHTML = `
-//     <div class="col">
-//       <img src="./img/${product.namaProduk
-//         .replace(/\s+/g, "-")
-//         .toLowerCase()}.png" alt="${product.namaProduk}" />
-//       <h3>${product.namaProduk}</h3>
-//       <p>${product.deskripsiProduk}</p>
-//       <button class="pesan">Pesan Sekarang</button>
-//     </div>
-//   `;
-//   return productHTML;
-// }
-
-// // Function to display products
-// function displayProducts() {
-//   const produkContainer = document.getElementById("produk-container");
-//   let productElements = "";
-
-//   produkData.forEach((product) => {
-//     productElements += createProductElement(product);
-//   });
-
-//   produkContainer.innerHTML = productElements;
-// }
-
-// // Call the function to display products
-// displayProducts();
