@@ -38,65 +38,14 @@
           Setiap produk kami menghadirkan keunikan cita rasa yang istimewa,
           <br />dan diolah dengan menggunakan bahan-bahan berkualitas terbaik.
         </p>
-        <div class="row">
-          <div class="col">
-            <img src="./img/wedang-kencur.png" alt="Wedang kencur" />
-            <h3>Wedang Kencur</h3>
-            <h4 class="harga">Rp 15.000</h4>
-            <p>
-              We provide a variety of cupcakes for any party made with
-              high-quality natural ingredients and no preservatives
-            </p>
-            <button class="pesan">Pesan Sekarang</button>
-          </div>
-          <div class="col">
-            <img src="./img/wedang-kencur.png" alt="Wedang kencur" />
-            <h3>Wedang Kencur</h3>
-            <h4 class="harga">Rp 15.000</h4>
-            <p>
-              We provide a variety of cupcakes for any party made with
-              high-quality natural ingredients and no preservatives
-            </p>
-            <button class="pesan">Pesan Sekarang</button>
-          </div>
-          <div class="col">
-            <img src="./img/wedang-kencur.png" alt="Wedang kencur" />
-            <h3>Wedang Kencur</h3>
-            <h4 class="harga">Rp 15.000</h4>
-            <p>
-              We provide a variety of cupcakes for any party made with
-              high-quality natural ingredients and no preservatives
-            </p>
-            <button class="pesan">Pesan Sekarang</button>
-          </div>
-          <div class="col">
-            <img src="./img/wedang-kencur.png" alt="Wedang kencur" />
-            <h3>Wedang Kencur</h3>
-            <h4 class="harga">Rp 15.000</h4>
-            <p>
-              We provide a variety of cupcakes for any party made with
-              high-quality natural ingredients and no preservatives
-            </p>
-            <button class="pesan">Pesan Sekarang</button>
-          </div>
-          <div class="col">
-            <img src="./img/wedang-kencur.png" alt="Wedang kencur" />
-            <h3>Wedang Kencur</h3>
-            <h4 class="harga">Rp 15.000</h4>
-            <p>
-              We provide a variety of cupcakes for any party made with
-              high-quality natural ingredients and no preservatives
-            </p>
-            <button class="pesan">Pesan Sekarang</button>
-          </div>
-        </div>
+        <div class="row" id="produk-container"></div>
       </div>
     </section>
 
     <!-- footer start -->
     <footer class="footer" id="footer">
       <div class="container">
-        <img src="assets/logo.png" alt="logo griya jamoe" />
+        <img src="img/logo.png" alt="logo griya jamoe" />
         <div class="row">
           <div class="col">
             <h5>Minuman Tradisional <br />Rempah Klasik, Rasa Autentik</h5>
@@ -131,6 +80,63 @@
         © Griya Jamoe Klasik 2024 - All rights reserved
       </p>
     </footer>
+
+    <script src="js/data.js"></script>
+    <script>
+      const produkData = [
+        {
+          gambar: "img/wedang-kencur.png",
+          namaProduk: "Wedang Kencur",
+          deskripsiProduk:
+            " Wedang kencur adalah minuman tradisional Indonesia yang dikenal sebagai penyegar dan penguat stamina, serta dipercaya memiliki manfaat kesehatan seperti meredakan masuk angin atau perut kembung.",
+        },
+
+        {
+          gambar: "img/teh-rosella.png",
+          namaProduk: "Teh Rosella",
+          deskripsiProduk:
+            "    Teh rosella adalah minuman herbal yang terbuat dari bunga rosella kering yang dikenal karena kandungan antioksidannya yang tinggi serta kemampuannya untuk menurunkan tekanan darah dan kolesterol.",
+        },
+
+        {
+          gambar: "img/wedang-mpon.png",
+          namaProduk: "Wedang mpon-mpon",
+          deskripsiProduk:
+            "     Wedang mpon-mpon, minuman tradisional dari Indonesia, dibuat dari campuran jahe, serai, dan rempah-rempah lainnya. Disajikan hangat, populer untuk menghangatkan tubuh saat cuaca dingin atau musim  hujan.",
+        },
+
+        {
+          gambar: "img/jahe-racik.png",
+          namaProduk: "Jahe Racik",
+          deskripsiProduk:
+            "Jahe racik adalah minuman tradisional Indonesia yang memiliki rasa hangat, pedas, dan segar , serta dikenal akan khasiatnya untuk meningkatkan sistem kekebalan tubuh dan membantu meredakan masuk angin atau gangguan pencernaan. ",
+        },
+
+        {
+          gambar: "img/kunyit-asam.png",
+          namaProduk: "Kunyit Asam",
+          deskripsiProduk:
+            "Kunyit asam adalah minuman tradisional Indonesia yang memiliki rasa asam segar dengan sentuhan manis dari gula, serta aroma rempah yang khas dari kunyit. Minuman ini dikenal karena khasiatnya dalam meningkatkan sistem pencernaan,  serta membersihkan racun dalam tubuh. ",
+        },
+      ];
+
+      const produkContainer = document.getElementById("produk-container");
+
+      const data = produkData
+        .map((item) => {
+          return `<div class='col'>
+
+        <img src='${item.gambar}' alt="${item.namaProduk}" />
+                <h3>${item.namaProduk}</h3>
+                <h4>Harga: 13.500</h4>
+                <p style='text-align: justify !important'>${item.deskripsiProduk}</p>
+                <button class='pesan'>Pesan Sekarang</button>
+          </div>`;
+        })
+        .join(" ");
+
+      produkContainer.innerHTML = data;
+    </script>
 
     <!-- footer end -->
   </body>
