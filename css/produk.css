@@ -50,13 +50,14 @@ header .container nav ul li a {
 
 .all-product .row {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 2rem;
 }
 
 .all-product .row .col {
   text-align: center;
   padding: 1rem;
+  width: 30%;
   background-color: #fff;
 }
 
@@ -130,3 +131,25 @@ footer .footer-bottom {
 }
 
 /* footer style end */
+
+@media (max-width: 768px) {
+  footer .row {
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 450px) {
+  header .container {
+    row-gap: 1rem;
+    flex-direction: column;
+  }
+
+  header .container nav ul li a {
+    margin-right: 10px !important;
+  }
+
+  .all-product-text {
+    text-align: justify !important;
+    font-size: 18px !important;
+  }
+}
