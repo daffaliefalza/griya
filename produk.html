@@ -81,6 +81,7 @@
       </p>
     </footer>
 
+    <script src="js/app.js"></script>
     <script src="js/data.js"></script>
     <script>
       const produkData = [
@@ -136,6 +137,22 @@
         .join(" ");
 
       produkContainer.innerHTML = data;
+
+      const buttons = produkContainer.querySelectorAll(".pesan");
+
+      buttons.forEach((button) => {
+        button.addEventListener("click", function () {
+          const productName =
+            this.parentElement.querySelector("h3").textContent;
+          const noHp = "6281213567170";
+          let pesan = `https://api.whatsapp.com/send?phone=${noHp}&text=Halo Admin, saya mau pesan produk ${productName}`;
+
+          // Open the WhatsApp message URL in a new window
+          window.open(pesan, "_blank");
+
+          // window.location.href = pesan;
+        });
+      });
     </script>
 
     <!-- footer end -->
