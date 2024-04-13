@@ -165,7 +165,7 @@
 .produk-kami .row .col {
   padding: 2rem;
   text-align: center;
-  border: 1px solid #ddd;
+  border: 2px solid #ddd;
 }
 
 /* .produk-kami .col img {
@@ -193,7 +193,13 @@
   border-radius: 10px;
   padding: 1rem 2rem;
   margin-inline: auto;
+  transition: 0.5s;
 }
+
+.produk-kami .lihat-selengkapnya:hover {
+  background-color: #c7a312;
+}
+
 /* produk kami style end */
 
 /* kenapa kami style */
