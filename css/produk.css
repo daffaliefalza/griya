@@ -79,6 +79,8 @@ header .container nav ul li a {
   text-align: center;
   padding: 1rem;
   background-color: #fff;
+  border: 1px solid #ddd;
+  box-shadow: 0 0 6px rgba(0, 0, 0, 0.1);
 }
 
 .all-product .row .col p {
