@@ -1,7 +1,5 @@
 const blogPost = document.querySelectorAll(".blog-post");
 
-console.log(blogPost);
-
 blogPost[0].onclick = () => {
   window.location.href = "blog-post/ginger_post.html";
 };
