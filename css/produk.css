@@ -153,6 +153,10 @@ footer .footer-bottom {
 /* footer style end */
 
 @media (max-width: 768px) {
+  .container {
+    padding-inline: 1.3rem !important;
+  }
+
   footer .row {
     flex-direction: column;
   }

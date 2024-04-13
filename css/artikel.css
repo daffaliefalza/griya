@@ -187,6 +187,10 @@ footer .footer-bottom {
 }
 
 @media (max-width: 450px) {
+  .container {
+    padding-inline: 1.3rem !important;
+  }
+
   header .container {
     row-gap: 1rem;
     flex-direction: column;
