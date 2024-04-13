@@ -38,6 +38,17 @@
           Setiap produk kami menghadirkan keunikan cita rasa yang istimewa,
           <br />dan diolah dengan menggunakan bahan-bahan berkualitas terbaik.
         </p>
+        <div
+          class="buttons"
+          style="display: flex; justify-content: center; gap: 1rem"
+        >
+          <button class="btn-jamu" onclick="filterProducts('Jamu')">
+            Jamu
+          </button>
+          <button class="btn-instan" onclick="filterProducts('Instan')">
+            Instan
+          </button>
+        </div>
         <div class="row" id="produk-container"></div>
       </div>
     </section>
@@ -88,6 +99,7 @@
         {
           gambar: "img/wedang-kencur.png",
           namaProduk: "Wedang Kencur",
+          kategoriProduk: "Jamu",
           deskripsiProduk:
             " Wedang kencur adalah minuman tradisional Indonesia yang dikenal sebagai penyegar dan penguat stamina, serta dipercaya memiliki manfaat kesehatan seperti meredakan masuk angin atau perut kembung.",
         },
@@ -95,6 +107,8 @@
         {
           gambar: "img/teh-rosella.png",
           namaProduk: "Teh Rosella",
+          kategoriProduk: "Jamu",
+
           deskripsiProduk:
             "    Teh rosella adalah minuman herbal yang terbuat dari bunga rosella kering yang dikenal karena kandungan antioksidannya yang tinggi serta kemampuannya untuk menurunkan tekanan darah dan kolesterol.",
         },
@@ -102,6 +116,8 @@
         {
           gambar: "img/wedang-mpon.png",
           namaProduk: "Wedang mpon-mpon",
+          kategoriProduk: "Jamu",
+
           deskripsiProduk:
             "     Wedang mpon-mpon, minuman tradisional dari Indonesia, dibuat dari campuran jahe, serai, dan rempah-rempah lainnya. Disajikan hangat, populer untuk menghangatkan tubuh saat cuaca dingin atau musim  hujan.",
         },
@@ -109,6 +125,7 @@
         {
           gambar: "img/jahe-racik.png",
           namaProduk: "Jahe Racik",
+          kategoriProduk: "Jamu",
           deskripsiProduk:
             "Jahe racik adalah minuman tradisional Indonesia yang memiliki rasa hangat, pedas, dan segar , serta dikenal akan khasiatnya untuk meningkatkan sistem kekebalan tubuh dan membantu meredakan masuk angin atau gangguan pencernaan. ",
         },
@@ -116,43 +133,67 @@
         {
           gambar: "img/kunyit-asam.png",
           namaProduk: "Kunyit Asam",
+          kategoriProduk: "Jamu",
+          deskripsiProduk:
+            "Kunyit asam adalah minuman tradisional Indonesia yang memiliki rasa asam segar dengan sentuhan manis dari gula, serta aroma rempah yang khas dari kunyit. Minuman ini dikenal karena khasiatnya dalam meningkatkan sistem pencernaan,  serta membersihkan racun dalam tubuh. ",
+        },
+
+        {
+          gambar: "img/jahe-racik-instan.jpg",
+          namaProduk: "Jahe Racik Instan",
+          kategoriProduk: "Instan",
+          deskripsiProduk:
+            "Jahe racik adalah minuman tradisional Indonesia yang memiliki rasa hangat, pedas, dan segar , serta dikenal akan khasiatnya untuk meningkatkan sistem kekebalan tubuh dan membantu meredakan masuk angin atau gangguan pencernaan. ",
+        },
+
+        {
+          gambar: "img/kunyit-instan.jpg",
+          namaProduk: "Kunyit Instan",
+          kategoriProduk: "Instan",
           deskripsiProduk:
             "Kunyit asam adalah minuman tradisional Indonesia yang memiliki rasa asam segar dengan sentuhan manis dari gula, serta aroma rempah yang khas dari kunyit. Minuman ini dikenal karena khasiatnya dalam meningkatkan sistem pencernaan,  serta membersihkan racun dalam tubuh. ",
         },
       ];
 
-      const produkContainer = document.getElementById("produk-container");
+      function filterProducts(category) {
+        const filteredProducts = produkData.filter(
+          (product) => product.kategoriProduk === category
+        );
+        displayProducts(filteredProducts);
+      }
 
-      const data = produkData
-        .map((item) => {
-          return `<div class='col'>
-
+      function displayProducts(products) {
+        const produkContainer = document.getElementById("produk-container");
+        const data = products
+          .map((item) => {
+            return `<div class='col'>
         <img src='${item.gambar}' alt="${item.namaProduk}" />
-                <h3>${item.namaProduk}</h3>
-                <h4>Harga: 13.500</h4>
-                <p style='text-align: justify !important'>${item.deskripsiProduk}</p>
-                <button class='pesan'>Pesan Sekarang</button>
-          </div>`;
-        })
-        .join(" ");
+        <h3>${item.namaProduk}</h3>
+        <h4>Harga: 13.500</h4>
+        <p style='text-align: justify !important'>${item.deskripsiProduk}</p>
+        <button class='pesan'>Pesan Sekarang</button>
+      </div>`;
+          })
+          .join(" ");
+        produkContainer.innerHTML = data;
 
-      produkContainer.innerHTML = data;
+        const buttons = produkContainer.querySelectorAll(".pesan");
 
-      const buttons = produkContainer.querySelectorAll(".pesan");
+        buttons.forEach((button) => {
+          button.addEventListener("click", function () {
+            const productName =
+              this.parentElement.querySelector("h3").textContent;
+            const noHp = "6281213567170";
+            let pesan = `https://api.whatsapp.com/send?phone=${noHp}&text=Halo Admin, saya mau pesan produk ${productName}`;
 
-      buttons.forEach((button) => {
-        button.addEventListener("click", function () {
-          const productName =
-            this.parentElement.querySelector("h3").textContent;
-          const noHp = "6281213567170";
-          let pesan = `https://api.whatsapp.com/send?phone=${noHp}&text=Halo Admin, saya mau pesan produk ${productName}`;
-
-          // Open the WhatsApp message URL in a new window
-          window.open(pesan, "_blank");
-
-          // window.location.href = pesan;
+            // Open the WhatsApp message URL in a new window
+            window.open(pesan, "_blank");
+          });
         });
-      });
+      }
+
+      // Display Jamu products by default
+      filterProducts("Jamu");
     </script>
 
     <!-- footer end -->
