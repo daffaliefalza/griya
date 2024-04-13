@@ -9,6 +9,16 @@
       content="Kami merupakan produsen UMKM yang berdedikasi memproduksi minuman jamu tradisional dan bahan rempah pilihan. Dengan komitmen pada kesehatan dan kearifan lokal, kami hadir untuk menyajikan produk berkualitas tinggi yang merangkul warisan tradisi dan memberikan manfaat kesehatan melalui setiap tetes dan sajian kami."
     />
     <title>Griya Jamoe Klasik</title>
+
+    <!-- scroll reveal -->
+    <script src="https://unpkg.com/scrollreveal@4"></script>
+
+    <!-- animate css -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+    />
+
     <link rel="icon" type="image/x-icon" href="./assets/logo.png" />
 
     <link rel="stylesheet" href="./css/default.css" />
@@ -17,7 +27,7 @@
   <body>
     <!-- header section start -->
     <header class="header">
-      <div class="container">
+      <div class="container animate__animated animate__fadeInDown">
         <nav>
           <a href="#" id="brand"
             ><span style="color: #fff">Griya</span> Jamoe Klasik</a
@@ -31,7 +41,10 @@
           <li><a href="artikel.html">Artikel</a></li>
         </ul>
       </div>
-      <div class="hero" id="hero">
+      <div
+        class="hero animate__animated animate__fadeIn animate__slow"
+        id="hero"
+      >
         <h1 class="hero-title">
           Minuman Tradisional <br />
           Rempah Klasik, Rasa Autentik
@@ -234,8 +247,76 @@
       </p>
     </footer>
 
-    <script src="js/data.js"></script>
+    <script>
+      // scroll reveals index
+      ScrollReveal().reveal(".slogan", {
+        delay: 1000,
+        origin: "left",
+        distance: "100px",
+      });
+
+      ScrollReveal().reveal(".tentang-kami-title", {
+        delay: 1000,
+        origin: "top",
+        distance: "100px",
+      });
+
+      ScrollReveal().reveal(".tentang-kami-text", {
+        delay: 1200,
+        origin: "left",
+        distance: "100px",
+      });
+      ScrollReveal().reveal(".tentang-kami img", {
+        delay: 1200,
+        origin: "right",
+        distance: "100px",
+      });
+
+      ScrollReveal().reveal(".produk-kami-title", {
+        delay: 1200,
+        origin: "top",
+        distance: "100px",
+      });
+
+      ScrollReveal().reveal(".produk-kami .line", {
+        delay: 1200,
+        origin: "top",
+        distance: "100px",
+      });
+
+      ScrollReveal().reveal(".produk-kami .col", {
+        delay: 1500,
+        origin: "left",
+        distance: "100px",
+      });
+
+      ScrollReveal().reveal(".kenapa-kami-title", {
+        delay: 1000,
+        origin: "top",
+        distance: "100px",
+      });
+
+      ScrollReveal().reveal(".kenapa-kami .line", {
+        delay: 1200,
+        origin: "top",
+        distance: "100px",
+      });
+
+      ScrollReveal().reveal(".kenapa-kami-text", {
+        delay: 1700,
+        origin: "left",
+        distance: "100px",
+      });
+
+      // ScrollReveal().reveal(".testimoni .wrapper", {
+      //   delay: 1700,
+      //   origin: "left",
+      //   distance: "100px",
+      // });
+    </script>
 
     <!-- footer end -->
+
+    <script src="js/data.js"></script>
   </body>
 </html>
