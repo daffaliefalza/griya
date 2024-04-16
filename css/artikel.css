@@ -161,6 +161,10 @@ footer .row .col:first-child p {
   font-family: "Work Sans", sans-serif;
 }
 
+footer .row .col h4 {
+  margin-top: 15px;
+}
+
 footer .row .col ul {
   list-style-type: none;
 }
